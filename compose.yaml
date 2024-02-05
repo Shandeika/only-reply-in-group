@@ -1,0 +1,9 @@
+x-env:
+  &env
+  BOT_TOKEN: "${BOT_TOKEN}"
+
+services:
+  bot:
+    build: .
+    restart: always
+    environment: *env
