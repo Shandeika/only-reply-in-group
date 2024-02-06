@@ -25,7 +25,7 @@ class ChatTypeFilter(BaseFilter):
 
 @dp.message(ChatTypeFilter(chat_type=["group", "supergroup"]))
 async def message_handler(message: Message):
-    if not message.reply_to_message:
+    if not message.reply_to_message and not message.sender_chat:
         await message.delete()
 
 
